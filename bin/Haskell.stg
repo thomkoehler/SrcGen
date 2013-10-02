@@ -1,0 +1,26 @@
+
+options
+{
+   description = "Haskell Module"
+}
+
+params
+{
+   outDir["output folder"] = history(outDir),
+   module["module name"]
+}
+
+{
+   moduleName = toUpper(first($module)) + substr($module, 1, length($module) - 1);  	
+   outFile = $moduleName + ".hs";
+}
+
+$$
+
+module $moduleName$
+(
+)
+where
+
+
+$$

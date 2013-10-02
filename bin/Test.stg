@@ -1,0 +1,24 @@
+options
+{
+   description = "Test.stg"
+}
+
+params
+{
+  param1,
+  param2
+}
+
+{
+  out1 = toInt($param1) - toInt($param2);
+  out2 = substr($param1, 0, 1);
+  
+  outFile = "stdout";
+}
+
+$$
+
+$out1$
+$out2$
+
+$$

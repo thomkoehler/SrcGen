@@ -1,0 +1,76 @@
+
+options
+{
+   description = "C++ header and source file"
+}
+
+params
+{
+   outDir["output folder"] = history(outDir),
+   className["class name"],
+   namespace = history(namespace)
+}
+
+{
+   if(def namespace)
+   {
+      headerDefine = toUpper($namespace) + "_" +  toUpper($className);
+   }
+   else
+   {
+      headerDefine = toUpper($className);
+   }
+   
+   outFile = $className + ".h";
+}
+
+
+$$
+//-------------------------------------------------------------------------------------------------
+
+#ifndef $headerDefine$_H
+#define $headerDefine$_H
+
+//-------------------------------------------------------------------------------------------------
+
+$if(namespace)$
+namespace $namespace$
+{
+$endif$
+
+class $className$
+{
+};
+
+$if(namespace)$
+}  // namespace $namespace$
+$endif$
+
+//-------------------------------------------------------------------------------------------------
+
+#endif // $headerDefine$_H
+
+//-------------------------------------------------------------------------------------------------
+
+$$
+
+
+{
+   outFile = $className + ".cpp";
+}
+
+
+$$
+//-------------------------------------------------------------------------------------------------
+
+#include "$className$.h"
+
+//-------------------------------------------------------------------------------------------------
+
+$if(namespace)$
+using namespace $namespace$;
+$endif$
+
+//-------------------------------------------------------------------------------------------------
+
+$$

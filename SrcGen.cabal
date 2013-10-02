@@ -1,0 +1,51 @@
+name: SrcGen
+version: 0.0.1
+cabal-version: -any
+build-type: Simple
+license: AllRightsReserved
+license-file: ""
+copyright:
+maintainer:
+build-depends: HStringTemplate -any, base >=3 && <5,
+               containers -any, directory -any, filepath -any, haskeline -any,
+               parsec -any, regex-posix -any, template-haskell -any
+stability:
+homepage:
+package-url:
+bug-reports:
+synopsis: SrcGen
+description: .
+category:
+author: Thomas Koehler
+tested-with:
+data-files:
+data-dir: ""
+extra-source-files:
+extra-tmp-files:
+ 
+executable: SrcGen.exe
+main-is: Main.hs
+buildable: True
+build-tools:
+cpp-options:
+cc-options:
+ld-options:
+pkgconfig-depends:
+frameworks:
+c-sources:
+extensions:
+extra-libraries:
+extra-lib-dirs:
+includes:
+install-includes:
+include-dirs:
+hs-source-dirs: src
+other-modules: VarTypes StmtResolver SrcTemplateTree
+               SrcTemplateParser SrcTemplateLexer SrcGen ProgramOptions
+               LiftFunction Input LiftFunction
+ghc-prof-options:
+ghc-shared-options:
+ghc-options:
+hugs-options:
+nhc98-options:
+jhc-options:
